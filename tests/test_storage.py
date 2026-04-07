@@ -1,6 +1,6 @@
 import json
 
-from stockguard.storage import INVENTORY_FILE, load_inventory, save_inventory
+from stockguard.storage import load_inventory, save_inventory
 
 
 def test_load_inventory_nonexistent_file(mocker):
@@ -11,10 +11,18 @@ def test_load_inventory_nonexistent_file(mocker):
 
 def test_load_inventory_corrupt_file(mocker):
     mocker.patch("stockguard.storage.os.path.exists", return_value=True)
-    mocker.patch("stockguard.storage.open", mocker.mock_open(read_data="invalid json"), create=True)
+    mocker.patch(
+        "stockguard.storage.open",
+        mocker.mock_open(read_data="invalid json"),
+        create=True,
+    )
     mocker.patch(
         "stockguard.storage.json.load",
-        side_effect=json.JSONDecodeError("Expecting value", "invalid json", 0),
+        side_effect=json.JSONDecodeError(
+            "Expecting value",
+            "invalid json",
+            0,
+        ),
     )
 
     assert load_inventory() == []

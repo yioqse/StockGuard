@@ -11,11 +11,14 @@ def load_inventory() -> list:
     """Load inventory from JSON file.
 
     Returns:
-        list: List of inventory items. Returns empty list if file not found or corrupted.
+        list: List of inventory items.
+            Returns empty list if file not found or corrupted.
 
     Raises:
-        FileNotFoundError: If the file does not exist (handled internally, returns []).
-        json.JSONDecodeError: If the JSON is invalid (handled internally, returns []).
+        FileNotFoundError: If the file does not exist (handled internally,
+            returns []).
+        json.JSONDecodeError: If the JSON is invalid (handled internally,
+            returns []).
     """
     if not os.path.exists(INVENTORY_FILE):
         return []

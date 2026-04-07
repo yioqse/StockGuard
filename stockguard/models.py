@@ -13,7 +13,8 @@ class Item:
         price (float): The price of the item. Must be greater than 0.
 
     Raises:
-        ValueError: If qty is not greater than 0 or price is not greater than 0.
+        ValueError: If qty is not greater than 0 or price is not
+            greater than 0.
     """
     name: str
     qty: int
