@@ -1,4 +1,4 @@
-"""Storage functions for StockGuard inventory system."""
+"""Funciones de almacenamiento para el sistema de inventario StockGuard."""
 
 import json
 import os
@@ -8,17 +8,17 @@ INVENTORY_FILE = 'inventory.json'
 
 
 def load_inventory() -> list:
-    """Load inventory from JSON file.
+    """Cargar el inventario desde un archivo JSON.
 
     Returns:
-        list: List of inventory items.
-            Returns empty list if file not found or corrupted.
+        list: Lista de elementos del inventario.
+            Devuelve lista vacía si el archivo no existe o el JSON está corrupto.
 
     Raises:
-        FileNotFoundError: If the file does not exist (handled internally,
-            returns []).
-        json.JSONDecodeError: If the JSON is invalid (handled internally,
-            returns []).
+        FileNotFoundError: Si el archivo no existe (se maneja internamente
+            y devuelve []).
+        json.JSONDecodeError: Si el JSON es inválido (se maneja internamente
+            y devuelve []).
     """
     if not os.path.exists(INVENTORY_FILE):
         return []
@@ -26,18 +26,18 @@ def load_inventory() -> list:
         with open(INVENTORY_FILE, 'r') as f:
             return json.load(f)
     except (json.JSONDecodeError, FileNotFoundError):
-        # Log error or handle as needed, for now return empty list
+        # Registrar el error o manejar según sea necesario; por ahora devuelve []
         return []
 
 
 def save_inventory(items: list) -> None:
-    """Save inventory to JSON file.
+    """Guardar el inventario en un archivo JSON.
 
     Args:
-        items (list): List of inventory items to save.
+        items (list): Lista de elementos de inventario para guardar.
 
-    Note:
-        Saves with indentation for readability.
+    Nota:
+        Guarda con sangría para mejorar la legibilidad.
     """
     with open(INVENTORY_FILE, 'w') as f:
         json.dump(items, f, indent=2)

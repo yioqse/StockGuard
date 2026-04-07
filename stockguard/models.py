@@ -1,27 +1,26 @@
-"""Models for StockGuard inventory system."""
+"""Modelos para el sistema de inventario StockGuard."""
 
 from dataclasses import dataclass
 
 
 @dataclass
 class Item:
-    """Represents an inventory item.
+    """Representa un ítem de inventario.
 
     Args:
-        name (str): The name of the item.
-        qty (int): The quantity of the item in stock. Must be greater than 0.
-        price (float): The price of the item. Must be greater than 0.
+        name (str): Nombre del ítem.
+        qty (int): Cantidad del ítem en stock. Debe ser mayor que 0.
+        price (float): Precio del ítem. Debe ser mayor que 0.
 
     Raises:
-        ValueError: If qty is not greater than 0 or price is not
-            greater than 0.
+        ValueError: Si qty no es mayor que 0 o price no es mayor que 0.
     """
     name: str
     qty: int
     price: float
 
     def __post_init__(self):
-        """Validate qty and price after initialization."""
+        """Validar qty y price después de la inicialización."""
         if self.qty <= 0:
             raise ValueError("Quantity must be greater than 0")
         if self.price <= 0:

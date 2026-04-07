@@ -13,7 +13,7 @@ def load_inventory():
         list: Lista de elementos en el inventario. Si el archivo no existe o
             el contenido no es JSON válido, devuelve una lista vacía.
 
-    Example:
+    Ejemplo:
         >>> load_inventory()
         []
     """
@@ -29,7 +29,7 @@ def save_inventory(items):
     Args:
         items (list): Lista de elementos a guardar en el inventario.
 
-    Example:
+    Ejemplo:
         >>> save_inventory([{"name": "Widget", "qty": 1, "price": 9.99}])
         None
     """
@@ -45,7 +45,7 @@ def add_item(name, qty, price):
         qty (int): Cantidad del ítem.
         price (float): Precio del ítem.
 
-    Example:
+    Ejemplo:
         >>> add_item('Widget', 5, 2.5)
         None
     """
@@ -61,7 +61,7 @@ def update_price(name, new_price):
         name (str): Nombre del ítem a actualizar.
         new_price (float): Nuevo precio del ítem.
 
-    Example:
+    Ejemplo:
         >>> update_price('Widget', 3.99)
         None
     """
@@ -78,7 +78,7 @@ def get_total_value():
     Returns:
         float: Suma de qty * price para todos los ítems del inventario.
 
-    Example:
+    Ejemplo:
         >>> get_total_value()
         0
     """

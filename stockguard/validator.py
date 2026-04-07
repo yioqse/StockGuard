@@ -1,19 +1,19 @@
-"""Validation functions for StockGuard inventory system."""
+"""Funciones de validación para el sistema de inventario StockGuard."""
 
 
 def validate_qty(qty: int) -> bool:
-    """Validate that quantity is greater than 0.
+    """Validar que la cantidad sea un entero positivo.
 
     Args:
-        qty (int): The quantity to validate.
+        qty (int): Cantidad a validar.
 
     Returns:
-        bool: True if qty > 0, False otherwise.
+        bool: True si qty > 0, False en caso contrario.
 
     Raises:
-        ValueError: If qty is not an integer or is <= 0.
+        ValueError: Si qty no es un entero o es <= 0.
 
-    Example:
+    Ejemplo:
         >>> validate_qty(5)
         True
         >>> validate_qty(0)
@@ -28,18 +28,18 @@ def validate_qty(qty: int) -> bool:
 
 
 def validate_price(price: float) -> bool:
-    """Validate that price is greater than 0.
+    """Validar que el precio sea un valor positivo.
 
     Args:
-        price (float): The price to validate.
+        price (float): Precio a validar.
 
     Returns:
-        bool: True if price > 0, False otherwise.
+        bool: True si price > 0, False en caso contrario.
 
     Raises:
-        ValueError: If price is not a number or is <= 0.
+        ValueError: Si price no es un número o es <= 0.
 
-    Example:
+    Ejemplo:
         >>> validate_price(10.5)
         True
         >>> validate_price(-5.0)
