@@ -20,7 +20,12 @@ class Item:
     price: float
 
     def __post_init__(self):
-        """Validar qty y price después de la inicialización."""
+        """Validar los campos de cantidad y precio después de la inicialización.
+
+        Raises:
+            ValueError: Si qty es menor o igual a 0.
+            ValueError: Si price es menor o igual a 0.
+        """
         if self.qty <= 0:
             raise ValueError("Quantity must be greater than 0")
         if self.price <= 0:
